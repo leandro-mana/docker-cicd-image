@@ -22,10 +22,11 @@ export
 
 help:
 	$(INFO) "Run: make <target>"
-	@echo -e "\n\tList of Supported Targets:"
+	$(INFO) "List of Supported Targets:"
 	@echo
 	@echo -e "\tbuild:\t $$BUILD"
 	@echo -e "\tclean:\t $$CLEAN"
+	@echo	
 
 build:
 	$(INFO) "$$BUILD"

@@ -135,5 +135,21 @@ RUN wget --quiet https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/t
 # END: Setup NON-APT Packages #
 ###############################
 
+#########################
+# START: Custom Scripts #
+#########################
+# Terraform and Cloudformation Deploy
+COPY ./scripts/deploy.sh /usr/local/sbin/deploy
+RUN chmod +x /usr/local/sbin/deploy
+
+# Docker Dangling Images Clean
+COPY ./scripts/docker_clean.sh /usr/local/sbin/docker_clean
+RUN chmod +x /usr/local/sbin/docker_clean
+
+#######################
+# END: Custom Scripts #
+#######################
+
+
 # ENTRYPOINT, init docker for Docker-In-Docker capabilities
 ENTRYPOINT service docker start
